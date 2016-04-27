@@ -1,5 +1,3 @@
-// My application logic
-
 /* Class */
 
 class Saludador {

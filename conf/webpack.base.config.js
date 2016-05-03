@@ -5,10 +5,10 @@ var WebpackConfig = require('webpack-config');
 
 module.exports = new WebpackConfig().merge({
   entry: {
-    bundle: './src/index.js'
+    bundle: './src/app/index.js'
   },
   output: {
-    path: "./public",
+    path: "./src/public",
     filename: '[name].js'
   },
   module: {

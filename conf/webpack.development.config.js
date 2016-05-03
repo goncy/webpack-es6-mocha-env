@@ -8,7 +8,7 @@ module.exports = new WebpackConfig().extend('./conf/webpack.base.config.js').mer
     test: './conf/webpack.tests.js'
   },
   devServer: {
-    contentBase: './public',
+    contentBase: './src/public',
     port: 3333
   },
   module: {

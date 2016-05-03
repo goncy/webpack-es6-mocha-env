@@ -1,6 +1,5 @@
-let expect = require("chai").expect;
-
 import jsdom from 'mocha-jsdom';
+import {expect} from 'chai';
 
 import {Saludador} from '../Application.js';
 
@@ -15,13 +14,13 @@ describe("Testea el modulo Application", () => {
   });
 
   beforeEach(function(){
-    saludador = new Saludador();
     container.innerHTML = '';
   });
 
   it("Deberia saludar a alguien", () => {
-    saludador.saludar("Gonzalo", container);
+    saludador = new Saludador("Gonzalo", container);
+    saludador.saludar();
 
-    expect(container.innerHTML).to.equal("Gonzalo");
+    expect(container.innerHTML).to.equal("Hola Gonzalo!");
   });
 });

@@ -1,7 +1,7 @@
-import {Saludador} from './js/Application';
+import Saludador from './js/Application';
 
-let container = document.createElement("div");
-let saludador = new Saludador("Gonzalo", container);
+let container = document.createElement('div');
+let saludador = new Saludador('Gonzalo', container);
 
 saludador.saludar();
 

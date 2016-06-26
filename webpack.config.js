@@ -12,8 +12,6 @@ const isTest = ENV === 'test' || ENV === 'test-watch';
 const isProd = ENV === 'build';
 const isDev = ENV === 'development';
 
-console.log(ENV);
-
 let config = {};
 
 if (isTest) config = testConfig;

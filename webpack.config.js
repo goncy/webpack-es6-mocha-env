@@ -1,23 +1,19 @@
 const merge = require('webpack-merge');
 
-const baseConfig = require('./config/webpack.base.config');
+import baseConfig from './webpack/webpack.base.config';
+import prodConfig from './webpack/webpack.production.config';
+import devConfig from './webpack/webpack.development.config';
 
-const testConfig = require('./config/webpack.test.config');
-const prodConfig = require('./config/webpack.production.config');
-const devConfig = require('./config/webpack.development.config');
+const TASK = process.env.npm_lifecycle_event;
 
-const ENV = process.env.npm_lifecycle_event;
-
-const isTest = ENV === 'test' || ENV === 'test-watch';
-const isProd = ENV === 'build';
-const isDev = ENV === 'development';
+const isProd = TASK === 'build';
+const isDev = TASK === 'start:dev';
 
 let config = {};
 
-if (isTest) config = testConfig;
 if (isProd) config = prodConfig;
 if (isDev) config = devConfig;
 
 const finalConfig = merge(baseConfig, config);
 
-module.exports = finalConfig;
+export default finalConfig;

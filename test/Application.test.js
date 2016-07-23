@@ -1,8 +1,8 @@
 /* eslint-env mocha */
-import expect from 'expect.js';
+import expect from '../node_modules/expect.js/index';
 import jsdom from 'mocha-jsdom';
 
-import Saludador from './Application';
+import Saludador from '../app/Saludador';
 
 describe('Testea el modulo Application', () => {
   jsdom();

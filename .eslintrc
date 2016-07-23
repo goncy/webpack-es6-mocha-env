@@ -1,3 +1,31 @@
 {
-  "extends": "semistandard"
+  "extends": [
+    "standard",
+    "plugin:mocha/recommended"
+  ],
+  "env": {
+    "es6": true,
+    "browser": true,
+    "node": true,
+    "mocha": true
+  },
+  "globals": {
+    "__DEV__": true,
+    "describe": true,
+    "it": true
+  },
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaVersion": 7,
+    "ecmaFeatures": {
+      "experimentalObjectRestSpread": true
+    }
+  },
+  "plugins": [
+    "mocha"
+  ],
+  "rules": {
+    "semi": [1, "always"]
+  }
 }

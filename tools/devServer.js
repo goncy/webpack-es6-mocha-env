@@ -18,7 +18,6 @@ browserSync({
       webpackDevMiddleware(bundler, {
         publicPath: config.output.publicPath,
         noInfo: false,
-        quiet: true,
         stats: {
           assets: false,
           colors: true,

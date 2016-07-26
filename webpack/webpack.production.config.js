@@ -1,7 +1,8 @@
 import webpack from 'webpack';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import WebpackMd5Hash from 'webpack-md5-hash';
-import HtmlWebpackPlugin from 'html-webpack-plugin'
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import autoprefixer from 'autoprefixer';
 
 const WORKDIR = `${__dirname}/../`;
 const INDEXHTML = WORKDIR + 'public/index.html';
@@ -14,8 +15,7 @@ export default {
   module: {
     preLoaders: [],
     loaders: [
-      {test: /\.scss$/, loader: ExtractTextPlugin.extract('style', 'css!sass?sourceMap')},
-      {test: /\.css$/, loader: ExtractTextPlugin.extract('style', 'css?sourceMap')}
+      {test: /(\.css|\.scss)$/, loader: ExtractTextPlugin.extract('css?sourceMap!postcss!sass?sourceMap')}
     ]
   },
   plugins: [
@@ -47,5 +47,6 @@ export default {
       },
       __DEV__: false
     })
-  ]
+  ],
+  postcss: ()=> [autoprefixer]
 };

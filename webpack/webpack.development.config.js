@@ -2,6 +2,7 @@ import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import Visualizer from 'webpack-visualizer-plugin';
 import UnusedFilesWebpackPlugin from 'unused-files-webpack-plugin';
+import autoprefixer from 'autoprefixer';
 
 const WORKDIR = `${__dirname}/../`;
 const INDEXHTML = WORKDIR + 'public/index.html';
@@ -9,13 +10,9 @@ const INDEXHTML = WORKDIR + 'public/index.html';
 export default {
   devtool: 'cheap-module-eval-source-map',
   module: {
-    loaders: [{
-      test: /\.(scss|sass)$/,
-      loader: 'style!css!sass'
-    }, {
-      test: /\.css$/,
-      loader: 'style!css'
-    }]
+    loaders: [
+      {test: /(\.css|\.scss)$/, loaders: ['style', 'css?sourceMap', 'postcss', 'sass?sourceMap']}
+    ]
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -34,5 +31,6 @@ export default {
     }),
     new UnusedFilesWebpackPlugin(),
     new Visualizer()
-  ]
+  ],
+  postcss: ()=> [autoprefixer]
 };

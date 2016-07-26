@@ -1,0 +1,3 @@
+instrumentation:
+  excludes: ['*.(spec|test).js']
+  extensions: ['.js']

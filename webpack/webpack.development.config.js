@@ -11,7 +11,7 @@ export default {
   devtool: 'cheap-module-eval-source-map',
   module: {
     loaders: [
-      {test: /(\.css|\.scss)$/, loaders: ['style', 'css?sourceMap', 'postcss', 'sass?sourceMap']}
+      {test: /(\.css|\.scss)$/, loaders: ['style', 'css', 'postcss', 'sass?sourceMap']}
     ]
   },
   plugins: [

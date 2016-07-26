@@ -15,7 +15,7 @@ export default {
   module: {
     preLoaders: [],
     loaders: [
-      {test: /(\.css|\.scss)$/, loader: ExtractTextPlugin.extract('css?sourceMap!postcss!sass?sourceMap')}
+      {test: /(\.css|\.scss)$/, loader: ExtractTextPlugin.extract('css!postcss!sass?sourceMap')}
     ]
   },
   plugins: [
